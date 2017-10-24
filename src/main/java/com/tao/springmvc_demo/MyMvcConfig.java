@@ -3,6 +3,7 @@ package com.tao.springmvc_demo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.multipart.MultipartResolver;
@@ -20,7 +21,8 @@ import java.util.List;
 @Configuration
 @EnableWebMvc
 @EnableScheduling
-@ComponentScan("com.tao.springmvc_demo")
+//@ComponentScan("com.tao.springmvc_demo.web")
+@ComponentScan(basePackages = { "com.tao.springmvc_demo" }/*, excludeFilters = { @ComponentScan.Filter(type = FilterType.REGEX, pattern = "com.tao.springmvc_demo.service.*") }*/)
 public class MyMvcConfig extends WebMvcConfigurerAdapter{
     @Bean
     public InternalResourceViewResolver viewResolver() {
