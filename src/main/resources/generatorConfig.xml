@@ -7,8 +7,8 @@
     <!--mysql 连接数据库jar 这里选择自己本地位置-->
     <classPathEntry location="D:\etc\mysql-connector-java-5.1.25-bin.jar" />
     <context id="testTables" targetRuntime="MyBatis3">
-        <!--<plugin type="com.tao.springmvc_demo.common.PaginationPlugin">-->
-        <!--</plugin>-->
+        <plugin type="com.tao.springmvc_demo.common.PaginationPlugin">
+        </plugin>
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true" />
@@ -24,27 +24,27 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
-        <!-- targetProject:生成PO类的位置 -->
-        <javaModelGenerator targetPackage="com.tao.springmvc_demo.po"
+        <!-- targetProject:生成PO类的位置 targetPackage 包名-->
+        <javaModelGenerator targetPackage="com.tao.springmvc_demo.po2"
                             targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
             <!-- 从数据库返回的值被清理前后的空格 -->
             <property name="trimStrings" value="true" />
-            <property name="rootClass" value="com.tao.springmvc_demo.BaseEntity" />
+            <property name="rootClass" value="com.tao.springmvc_demo.common.BaseEntity" /><!-- 父类 -->
         </javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置
            如果maven工程只是单独的一个工程，targetProject="src/main/java"
            若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：
            targetProject="ecps-manager-mapper"，下同-->
-        <sqlMapGenerator targetPackage="com.tao.springmvc_demo.mapper"
-                         targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="mapping2"
+                         targetProject="src/main/resources">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
         <!-- targetPackage：mapper接口生成的位置 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.tao.springmvc_demo.mapper"
+                             targetPackage="com.tao.springmvc_demo.mapper2"
                              targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />

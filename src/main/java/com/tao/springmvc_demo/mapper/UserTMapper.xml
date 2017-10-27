@@ -11,7 +11,7 @@
     id, user_name, password, age
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from user_t
     where id = #{id,jdbcType=INTEGER}
@@ -21,10 +21,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.tao.springmvc_demo.po.UserT" >
-    insert into user_t (id, user_name, password, 
-      age)
-    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{age,jdbcType=INTEGER})
+    insert into user_t (id, user_name, password,
+    age)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{age,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.tao.springmvc_demo.po.UserT" >
     insert into user_t
