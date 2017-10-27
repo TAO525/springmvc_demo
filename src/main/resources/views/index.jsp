@@ -5,10 +5,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
+    <link rel="stylesheet" href="/assets/css/bg.css">
+    <script type="application/javascript" src="assets/js/jquery.js"></script>
+    <script type="application/javascript" src="assets/js/alter.js"></script>
 </head>
 <body>
 <pre>
-		Welcome to Spring MVC world
+		Welcome to Spring MVC world!
 	</pre>
 </body>
 </html>

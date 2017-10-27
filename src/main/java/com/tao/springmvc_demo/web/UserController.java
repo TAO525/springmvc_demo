@@ -25,7 +25,7 @@ public class UserController {
     @ResponseBody
     public String Random(){
         UserT userById = userService.getUserById(1);
-        return "用户数据："+ JSON.toJSONString(userById);//data 一定要加 属于数据格式
+        return "用户数据："+ JSON.toJSONString(userById);
     }
 
 }

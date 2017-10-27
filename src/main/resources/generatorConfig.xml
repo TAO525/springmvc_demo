@@ -7,6 +7,8 @@
     <!--mysql 连接数据库jar 这里选择自己本地位置-->
     <classPathEntry location="D:\etc\mysql-connector-java-5.1.25-bin.jar" />
     <context id="testTables" targetRuntime="MyBatis3">
+        <!--<plugin type="com.tao.springmvc_demo.common.PaginationPlugin">-->
+        <!--</plugin>-->
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true" />
@@ -29,6 +31,7 @@
             <property name="enableSubPackages" value="false" />
             <!-- 从数据库返回的值被清理前后的空格 -->
             <property name="trimStrings" value="true" />
+            <property name="rootClass" value="com.tao.springmvc_demo.BaseEntity" />
         </javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置
            如果maven工程只是单独的一个工程，targetProject="src/main/java"
@@ -46,7 +49,11 @@
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
-        <!-- 指定数据库表 -->
-        <table schema="" tableName="user_t"></table>
+        <!--要生成哪些表 -->
+        <table schema="" tableName="user_t" enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false"
+               selectByExampleQueryId="false">
+            <!--<property name="rootClass" value="com.tao.springmvc_demo.BaseEntity" />-->
+        </table>
     </context>
 </generatorConfiguration>

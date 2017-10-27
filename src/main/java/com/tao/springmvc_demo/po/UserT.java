@@ -1,11 +1,6 @@
 package com.tao.springmvc_demo.po;
 
-import java.io.Serializable;
-
-public class UserT implements Serializable{
-
-    private static final long serialVersionUID = -1975418139344024968L;
-
+public class UserT {
     private Integer id;
 
     private String userName;
