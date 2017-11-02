@@ -1,9 +1,11 @@
 package com.tao.springmvc_demo.web;
 
+import ch.qos.logback.core.joran.spi.ActionException;
 import com.alibaba.fastjson.JSON;
 import com.tao.springmvc_demo.po.UserT;
 import com.tao.springmvc_demo.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,5 +29,13 @@ public class UserController {
         UserT userById = userService.getUserById(1);
         return "用户数据："+ JSON.toJSONString(userById);
     }
+
+    @RequestMapping(value = "/bath")
+    @ResponseBody
+    public String bath() throws ActionException {
+        userService.bath2();
+        return "ok";
+    }
+
 
 }

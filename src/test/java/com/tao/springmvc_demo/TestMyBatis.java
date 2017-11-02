@@ -6,12 +6,15 @@ import com.mysql.jdbc.log.LogFactory;
 import com.tao.springmvc_demo.po.UserT;
 import com.tao.springmvc_demo.service.UserService;
 import com.tao.springmvc_demo.service.impl.UserServiceImpl;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import javax.annotation.Resource;
 
@@ -20,18 +23,20 @@ import javax.annotation.Resource;
  * @Date 2017/10/16 22:59
  */
 @RunWith(SpringJUnit4ClassRunner.class)     //表示继承了SpringJUnit4ClassRunner类
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+//@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+@ContextHierarchy({
+        @ContextConfiguration(name = "parent",locations = {"classpath:spring-mybatis.xml"})
+})
 public class TestMyBatis {
     private static Logger logger = LoggerFactory.getLogger(TestMyBatis.class);
     //  private ApplicationContext ac = null;
     @Resource
     private UserService userService;
 
-//  @Before
-//  public void before() {
-//      ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-//      userService = (IUserService) ac.getBean("userService");
-//  }
+  @Before
+  public void before() {
+
+  }
 
     @Test
     public void test1() {

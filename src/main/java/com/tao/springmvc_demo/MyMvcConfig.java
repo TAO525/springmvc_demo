@@ -22,7 +22,7 @@ import java.util.List;
 @EnableWebMvc
 @EnableScheduling
 //@ComponentScan("com.tao.springmvc_demo.web")
-@ComponentScan(basePackages = { "com.tao.springmvc_demo" }/*, excludeFilters = { @ComponentScan.Filter(type = FilterType.REGEX, pattern = "com.tao.springmvc_demo.service.*") }*/)
+@ComponentScan(basePackages = { "com.tao.springmvc_demo.web" }/*, excludeFilters = { @ComponentScan.Filter(type = FilterType.REGEX, pattern = "com.tao.springmvc_demo.service.*") }*/)
 public class MyMvcConfig extends WebMvcConfigurerAdapter{
     @Bean
     public InternalResourceViewResolver viewResolver() {
